@@ -1347,6 +1347,7 @@ sql server,...@([0-9]+|y)a,xxx@a
 sql server,DROP TABLE IF EXISTS #@table;,"IF OBJECT_ID('tempdb..#@table', 'U') IS NOT NULL DROP TABLE #@table;"
 sql server,DROP TABLE IF EXISTS @table;,"IF OBJECT_ID('@table', 'U') IS NOT NULL DROP TABLE @table;"
 sql server,CREATE TABLE IF NOT EXISTS @table (@definition);,"IF OBJECT_ID('@table', 'U') IS NULL CREATE TABLE @table (@definition);"
+iris,"COALESCE(@a, DATEADD(day,@b,@c), DATEADD(day,@d,@e))","COALESCE(@a, CAST (DATEADD(daysdf,@b,@c) AS DATE), CAST (DATEADD(day,@d,@e) AS DATE))"
 iris,"CONCAT(p.year_of_birth, @b, @c)",p.year_of_birth||'-'||@b ||'-'|| @c
 iris,...@([0-9]+)a,xxx@a  --???
 iris,"IIF(@condition, @whentrue, @whenfalse)","CASE WHEN @condition THEN @whentrue ELSE @whenfalse END"
